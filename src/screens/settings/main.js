@@ -3,7 +3,7 @@ import {View, Text, StyleSheet,TouchableOpacity, FlatList} from 'react-native';
 import MCIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import FAIcons from 'react-native-vector-icons/FontAwesome';
 import configs from '../../config/config';
-const {icons} = configs;
+const {icons, fonts, colors} = configs;
 export default class Main extends Component{
     constructor(props){
         super(props);
@@ -34,7 +34,7 @@ export default class Main extends Component{
             {
                 leftIcon : icons.plus,
                 title : 'credits',
-                navigateTo : 'Credits'
+                navigateTo : 'Credit'
             },
             
         ];
@@ -51,7 +51,7 @@ export default class Main extends Component{
                     <View>
                     <FAIcons name="sign-out" color="black" size={30} />    
                     </View>
-                <Text>  Logout</Text>
+                <Text style={{fontFamily : fonts.msBold}}>  Logout</Text>
                 </View>
             </View>
         )
@@ -65,11 +65,18 @@ export default class Main extends Component{
             >
                 <View style = {{flexDirection : 'row', padding : 10}}>
                     <Text style = {styles.leftIconCont}>
-                      <MCIcons 
-                      name={item.leftIcon} 
-                      color = "gray" 
-                      size ={25} 
-                      />  
+                        {item.leftIcon!="information"?
+                        <MCIcons 
+                        name={item.leftIcon} 
+                        color = {colors.blue1} 
+                        size ={25} 
+                        />
+                        :
+                        <Text>
+                        <FAIcons name="info" color={colors.blue1} size={25} />
+                        </Text>
+                        }
+                      
                     </Text>
                     <View style = {{flex : 0.7}}>
                         <Text style = {styles.title}>
@@ -80,7 +87,7 @@ export default class Main extends Component{
                     <Text style = {styles.rightIconCont}>
                       <MCIcons 
                       name={icons.rightChevron} 
-                      color = "gray" 
+                      color = {colors.blue1} 
                       size ={25} 
                       />  
                     </Text>
@@ -106,10 +113,10 @@ const styles = StyleSheet.create({
         // fontWeight : 'bold',
         textAlign : 'left',
         fontFamily : 'Montserrat-Bold',
-
+        color : colors.blue1
     },
     leftIconCont : {
-        flex : 0.2
+        flex : 0.2, textAlign : 'center'
     },
     rightIconCont : {
         flex : 0.1

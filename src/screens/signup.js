@@ -19,9 +19,11 @@ export default class Signup extends Component{
     render(){
         return(
             <View style = {{flex : 1}}>
+                <View style={{backgroundColor : 'rgb(230,230,230)'}}>
                 <View style = {{justifyContent : 'center', marginVertical : 20}}>
                     <LabelImg/>
                 </View>
+                
                 <View style = {{marginHorizontal : 30, marginVertical : 20}}>
                     <InputBox
                     onChangeText={(value)=>{alert(value)}}
@@ -37,9 +39,23 @@ export default class Signup extends Component{
                     />
                 </View>
                 <View style = {{marginVertical : 20, alignItems : 'center'}}>
+                <View style={{flexDirection : 'row', alignItems : 'center', marginHorizontal :30}}>
                 <Button
-                    title = "registrati"
-                    />
+                style = {styles.btnContainer}
+                title = "accedi"
+                buttonStyle={{width : 100+'%'}}
+                onPress = {()=>{this.props.navigation.navigate('Login')}}
+                />
+                <Button
+                style = {styles.btnContainer}
+                title = "registrati"
+                buttonStyle={{width : 100+'%', backgroundColor : 'rgb(0,200,100)'}}
+                titleStyle={{color : 'white'}}
+                onPress = {()=>{this.props.navigation.navigate('Signup')}}
+                />
+                
+                </View>
+                </View>
                 </View>
                 <View style={{marginVertical : 20}}>
                 <SocialLogin/>
@@ -51,3 +67,10 @@ export default class Signup extends Component{
         )
     }
 }
+const styles = StyleSheet.create({
+    btnContainer : {
+        alignItems : 'center',
+        flex : 1,
+        margin : 3
+    }
+})

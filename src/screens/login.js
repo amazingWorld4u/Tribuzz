@@ -23,6 +23,7 @@ export default class Login extends Component{
     render(){
         return(
             <KeyboardAvoidingView style = {{flex : 1}}>
+                <View style={{backgroundColor : 'rgb(230,230,230)'}}>
                 <View style = {styles.headerImgContainer}>
                     <LabelImg/>
                 </View>
@@ -36,11 +37,24 @@ export default class Login extends Component{
                     placeholder="Password"
                     />
                 </View>
+                <View style={{flexDirection : 'row', alignItems : 'center', marginHorizontal : 40, marginBottom : 20}}>
                 <Button
                 style = {styles.btnContainer}
                 title = "accedi"
+                buttonStyle={{width : 100+'%', backgroundColor : 'rgb(0,200,100)'}}
                 onPress = {()=>{this.props.navigation.navigate('Home')}}
+                titleStyle={{color : 'white'}}
+
                 />
+                <Button
+                style = {styles.btnContainer}
+                title = "registrati"
+                buttonStyle={{width : 100+'%'}}
+                onPress = {()=>{this.props.navigation.navigate('Signup')}}
+                />
+                
+                </View>
+                </View>
                 <SocialLogin 
                 style = {styles.socialBtnContainer} 
                 />
@@ -64,6 +78,7 @@ const styles = StyleSheet.create({
     },
     btnContainer : {
         alignItems : 'center',
-        marginVertical : 0
+        flex : 1,
+        margin : 2
     }
 })

@@ -13,13 +13,16 @@ export default class About extends Component{
     }
     render(){
         return(
-            <ScrollView style = {{flex : 1, backgroundColor : 'rgb(200,210,200)'}}>
-                <View style = {{marginTop : 5}}>
+            <ScrollView style = {{flex : 1,}}>
+                <View style = {{marginVertical : 10}}>
                 <HeaderImg/>
                 </View>
+                <View style={{ backgroundColor : 'rgb(230,230,230)'}}>
                 <Text style = {{textAlign : 'center', margin : 20, fontFamily : fonts.msSBold, padding : 20}}>
                     {text}
                 </Text>
+                </View>
+                
             </ScrollView>
         )
     }

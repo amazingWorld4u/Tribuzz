@@ -88,12 +88,15 @@ export default class CampaignDetails extends Component{
                 />
                 <Tab/>
                 <View>
-                    <View style={{flexDirection : 'row',backgroundColor : 'rgb(240,240,240)'}}>
-                        <View style={{flex : 1, alignItems : 'center', }}>
+                    <Text style={{textAlign : 'center', fontFamily : fonts.msMedium, paddingVertical : 10}}>Pubblica Il tuo Contenueto</Text>
+                    <View style={{flexDirection : 'row'}}>
+                        <View style={{flex : 1, alignItems : 'center',marginRight : 1 , backgroundColor : 'rgb(240,240,240)'}}>
                             <MCIcons name="image" color="rgb(200,200,200)" size={100} />
+                            <Text style={{fontFamily : fonts.msRegular, color : 'rgb(180,180,180)'}}>Galleria</Text>
                         </View>
-                        <View style={{flex : 1, alignItems : 'center'}}>
+                        <View style={{flex : 1, alignItems : 'center', marginLeft : 1, backgroundColor : 'rgb(240,240,240)'}}>
                             <MCIcons name="camera" color="rgb(200,200,200)" size={100} />
+                            <Text style={{fontFamily : fonts.msRegular, color : 'rgb(180,180,180)'}}>FotoCamera</Text>
                         </View>
                     </View>
                     

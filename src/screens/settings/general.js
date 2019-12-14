@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
-import {View, Text, StyleSheet,TouchableOpacity, SectionList} from 'react-native';
+import {View, Text, StyleSheet,TouchableOpacity, SectionList, Image} from 'react-native';
 import MCIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import config from '../../config/config';
 import { Switch } from 'react-native-gesture-handler';
-const {icons, fonts} = config;
+import Button from '../../components/common/button';
+const {icons, fonts, assets, colors} = config;
 export default class General extends Component{
     constructor(props){
         super(props);
@@ -16,16 +17,19 @@ export default class General extends Component{
                 data : [
                     {
                         leftIcon : icons.fb,
+                        leftIconType : 'icon',
                         title : 'Facebook',
                         rightIconType : 'icon',
                     },
                     {
-                        leftIcon : icons.twitter,
+                        leftIcon : assets.twitterCircle,
+                        leftIconType : 'image',
                         title : 'Twitter',
                         rightIconType : 'icon',
                     },
                     {
-                        leftIcon : icons.insta,
+                        leftIcon : assets.insta,
+                        leftIconType : 'image',
                         title : 'Instagram',
                         rightIconType : 'icon',
                     }
@@ -36,16 +40,19 @@ export default class General extends Component{
                 data : [
                     {
                         leftIcon : icons.image,
+                        leftIconType : 'icon',
                         title : 'accesso alla galleria',
                         rightIconType : 'icon',
                     },
                     {
                         leftIcon : icons.camera,
+                        leftIconType : 'icon',
                         title : 'accesso alla fotocamera',
                         rightIconType : 'icon',
                     },
                     {
                         leftIcon : icons.location,
+                        leftIconType : 'icon',
                         title : 'accesso alla geolocalizzazione',
                         rightIconType : 'icon',
                     }
@@ -89,8 +96,35 @@ export default class General extends Component{
                         </View>
                     )
                 }}
+                ListFooterComponent={this.footer}
                 />
             </View>
+        )
+    }
+    footer = ()=>{
+        return(
+            <View>
+                <View style={{alignItems : 'center', backgroundColor : 'rgb(230,230,230)', paddingVertical : 10}}>
+                    <Button
+                    style={{marginVertical : 20}}
+                    title="termini e condizioni"
+                    buttonStyle={{width : 60+'%'}}
+                    />
+                </View>
+                <View 
+                style={{marginVertical : 10,flexDirection : 'row', justifyContent : 'space-between', marginHorizontal : 30,alignItems : 'center'}}>
+                    <Text style={{fontFamily : fonts.msMedium, color : 'rgb(170,170,170)'}}>modalita notte</Text>
+                    <Switch 
+                    value={false} 
+                    onValueChange = {()=>{}} />
+                </View>
+                <View style={{backgroundColor:'rgb(230,230,230)', padding: 10 }}>
+                    <Text style={{color : 'black', fontFamily : fonts.msBold}}>
+                        Versione Tribuzz 1.0.1
+                    </Text>
+                </View>
+            </View>
+            
         )
     }
     renderItem = ({item,index})=>{
@@ -100,6 +134,7 @@ export default class General extends Component{
                 <View 
                 style = {{justifyContent : 'space-between',flexDirection : 'row', alignItems : 'center'}}>
                     {item.leftIcon?
+                    item.leftIconType=="icon"?
                     <View 
                     style = {styles.leftIconCont}>
                         <Text>
@@ -108,6 +143,10 @@ export default class General extends Component{
                             color="rgb(210,210,210)" 
                             size={30} />
                         </Text>
+                    </View>
+                    :
+                    <View>
+                        <Image source={item.leftIcon} style={{width:30, height : 30}} />
                     </View>
                     : null}
                     <View 
@@ -147,8 +186,9 @@ const styles = StyleSheet.create({
     },
     sectionHeader : {
         padding : 10,
-        backgroundColor : 'rgb(200,210,200)',
-        fontFamily : fonts.msSBold
+        backgroundColor : 'rgb(230,230,230)',
+        fontFamily : fonts.msSBold,
+        color : colors.blue1
     },
     leftIconCont : {
         flex : 0.2

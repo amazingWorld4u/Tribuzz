@@ -23,9 +23,9 @@ export default class Controlia extends Component{
         const {name,subTitle,hashtag,campaignName} = data[0];
         return(
             <View style={{flex : 1}}>
-                <View style={{backgroundColor : 'rgb(200,210,200)', margin : 10}}>
+                <View style={{backgroundColor : 'rgb(230,230,230)', margin : 10}}>
                     <View style={{margin : 20}}>
-                        <View>
+                        <View style={{marginHorizontal : 30, marginVertical : 10}}>
                         <Text style={styles.name}>{name} </Text>
                         <Text style={styles.subTitleStyle}>{subTitle} </Text>
                         </View>
@@ -149,7 +149,7 @@ const styles = StyleSheet.create({
     buttonStyle : {
         borderRadius : 5,
         // width : (Dimensions.get('window').width/2)-4
-        width : null,
+        width : 100+'%',
         backgroundColor : config.colors.green1,
         borderWidth : 0
     },

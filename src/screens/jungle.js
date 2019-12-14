@@ -31,7 +31,7 @@ export default class Jungle extends Component{
         return(
             <View style={{marginVertical : 10, marginHorizontal : 5}}>
                 <View style={{flexDirection : 'row', alignItems : 'center'}}>
-                    <View style={{flex : 0.2, alignItems : 'center'}}>
+                    <View style={{flex : 0.2, alignItems : 'center', marginVertical : 10}}>
                         <View style={{borderRadius : 100, overflow : 'hidden'}}>
                         <Image
                         style={styles.img}
@@ -41,8 +41,8 @@ export default class Jungle extends Component{
                         </View>
                     </View>
                     <View style={{flex : 0.7}}>
-                        <Text style={styles.nameTxt}>Some Text</Text>
-                        <Text style={styles.subTitle}>Sub title</Text>
+                        <Text style={styles.nameTxt}>  Some Text</Text>
+                        <Text style={styles.subTitle}>  Sub title</Text>
                     </View>
                     <View style={{flex : 0.1}}>
                         <MCIcons name={icons.accountPlus} color="green" size={25} />
@@ -54,7 +54,7 @@ export default class Jungle extends Component{
                     source={{uri : item}}
                     >
                         <View style=  {{flex : 1}}>
-                        <View>
+                        <View style={{margin : 10}}>
                             <Text style={styles.imgTitle}>Text will appear</Text>
                             <Text style={styles.imgSubTitle}>Title</Text>
                         </View>
@@ -68,7 +68,7 @@ export default class Jungle extends Component{
                             />
                             <Image 
                             source={assets.share} 
-                            style={{height : 20, width : 20, marginHorizontal : 5}} 
+                            style={{height : 20, width : 20, marginHorizontal : 15}} 
                             resizeMode="contain" 
                             />
                         </View>
@@ -77,12 +77,12 @@ export default class Jungle extends Component{
                 </View>
                 <View>
                     <View 
-                    style= {{flexDirection : 'row', marginVertical : 5, flexDirection : 'row', justifyContent : 'space-between'}}
+                    style= {{flexDirection : 'row', margin : 10, flexDirection : 'row', justifyContent : 'space-between'}}
                     >
                         <Text style={styles.hashTag}>Some Hash Tag here</Text>
-                        <Text style={{fontFamily : fonts.msMedium}}>1 ora fa</Text>
+                        <Text style={{fontFamily : fonts.msMedium, color :'rgb(220,220,220)'}}>1 ora fa</Text>
                     </View>
-                    <View style={{marginVertical : 5}}>
+                    <View style={{marginHorizontal : 30}}>
                         <Text style={styles.subTitle}>Ciriaca Zito: Ciao</Text>
                         <Text style={styles.subTitle}>Maura Pinto: Bravissime!!!</Text>
                     </View>

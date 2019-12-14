@@ -7,7 +7,9 @@ import GeneralSettings from './general';
 import MCIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import config from '../../config/config'
 import { TouchableOpacity } from 'react-native';
-const {fonts, icons} =  config;
+import Eliminate from './eliminateAccount';
+import Credit from './credit';
+const {fonts, icons, colors} =  config;
 const Stack = createStackNavigator({
     SettingsHome : {
         screen : Main
@@ -20,6 +22,12 @@ const Stack = createStackNavigator({
     },
     GeneralSettings : {
         screen : GeneralSettings
+    },
+    Eliminate : {
+        screen : Eliminate
+    },
+    Credit : {
+        screen : Credit
     }
 },
 {
@@ -29,19 +37,22 @@ const Stack = createStackNavigator({
         let da = data.filter(obj=> obj.routeName==navigation.state.routeName)[0];
     return({
         headerLeft : 
-        <TouchableOpacity onPress = {()=>{navigation.goBack()}}>
+        <TouchableOpacity onPress = {()=>{da.title=="Settings" ? navigation.navigate('Home') : navigation.goBack()}}>
         <MCIcons 
         name={da.leftIcon} 
-        color="black" 
+        color={colors.blue1} 
         size={da.leftIcon=='close'?25 : 30}  />
         </TouchableOpacity>
         ,
         title : da.title,
-        headerTitleStyle : {textAlign : 'center', fontFamily : fonts.msBold, fontSize : 16},
+        headerTitleStyle : {textAlign : 'center', fontFamily : fonts.msBold, fontSize : 16, color : colors.blue1},
         headerRight : 
         <TouchableOpacity>
-            <MCIcons name={da.rightIcon} color="black" size={30} />
-        </TouchableOpacity>
+            <MCIcons name={da.rightIcon} color={colors.blue1} size={30} />
+        </TouchableOpacity>,
+        headerStyle : {
+            backgroundColor : 'rgb(230,230,230)'
+        }
     })
     }
 }
@@ -73,6 +84,16 @@ let data = [
         rightIcon : icons.menu,
         title : 'impostazioni generali'
     },
-
-    
+    {
+        routeName : 'Eliminate',
+        leftIcon : icons.leftChevron,
+        rightIcon : icons.menu,
+        title : 'modifica profilo'
+    },
+    {
+        routeName : 'Credit',
+        leftIcon : icons.leftChevron,
+        rightIcon : icons.menu,
+        title : 'Credits'
+    },
 ]

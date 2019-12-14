@@ -14,6 +14,14 @@ let addFriend = require('./add_friend_green.png');
 let camp = require('./campaign.png');
 let campBlue = require('./campaign_blue.png');
 let location = require('./location.png');
+let twitterCircle = require('./twitter.png');
+let insta = require('./camera.png');
+let anim = require('./icon.png');
+let anim1 = require('./icon-1.png');
+let trophy1 = require('./trophy-1.png');
+let trophy2 = require('./trophy-2.png');
+let trophy3 = require('./trophy-3.png');
+let loading = require('./loadining.png');
 export default {
     headerImg,
     headerTitleImg,
@@ -30,5 +38,13 @@ export default {
     campBlue,
     location,
     heart,
-    camp1
+    camp1,
+    twitterCircle,
+    insta,
+    anim,
+    anim1,
+    trophy1,
+    trophy2,
+    trophy3,
+    loading
 }
